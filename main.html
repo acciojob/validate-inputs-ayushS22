@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Input Validation</title>
+  <style>
+    input {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 250px;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
 
+  <h2>Input Validation Form</h2>
+
+  <input type="text" id="name" placeholder="Enter Name" onkeyup="validateName()">
+  <input type="text" id="email" placeholder="Enter Email" onkeyup="validateEmail()">
+  <input type="text" id="mobile" placeholder="Enter Mobile Number" onkeyup="validateMobile()">
+
+  <script src="script.js"></script>
 </body>
-
 </html>
