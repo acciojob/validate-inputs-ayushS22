@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Input Validation</title>
+  <title>Validate Inputs</title>
   <style>
     input {
       display: block;
@@ -13,11 +13,16 @@
 </head>
 <body>
 
-  <h2>Input Validation Form</h2>
+  <label>Name:</label>
+  <input type="text" id="name" required>
 
-  <input type="text" id="name" placeholder="Enter Name" onkeyup="validateName()">
-  <input type="text" id="email" placeholder="Enter Email" onkeyup="validateEmail()">
-  <input type="text" id="mobile" placeholder="Enter Mobile Number" onkeyup="validateMobile()">
+  <label>Email:</label>
+  <input type="text" id="email" required>
+
+  <label>Phone:</label>
+  <input type="text" id="mobile" required>
+
+  <button id="submit">Submit</button>
 
   <script src="script.js"></script>
 </body>

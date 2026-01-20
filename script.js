@@ -1,27 +1,30 @@
-//your JS code here. If required.
-function validateName() {
-  const name = document.getElementById("name");
-  const pattern = /^[A-Za-z]{3,}$/;
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const mobileInput = document.getElementById("mobile");
+const submitBtn = document.getElementById("submit");
 
-  name.style.backgroundColor = pattern.test(name.value)
-    ? "lightgreen"
-    : "pink";
+const namePattern = /^[A-Za-z]{3,}$/;
+const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+const mobilePattern = /^[0-9]{10}$/;
+
+function validate(input, pattern) {
+  if (pattern.test(input.value)) {
+    input.style.backgroundColor = "lightgreen";
+    return true;
+  } else {
+    input.style.backgroundColor = "pink";
+    return false;
+  }
 }
 
-function validateEmail() {
-  const email = document.getElementById("email");
-  const pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+// Validate on blur (Cypress triggers this)
+nameInput.addEventListener("blur", () => validate(nameInput, namePattern));
+emailInput.addEventListener("blur", () => validate(emailInput, emailPattern));
+mobileInput.addEventListener("blur", () => validate(mobileInput, mobilePattern));
 
-  email.style.backgroundColor = pattern.test(email.value)
-    ? "lightgreen"
-    : "pink";
-}
-
-function validateMobile() {
-  const mobile = document.getElementById("mobile");
-  const pattern = /^[0-9]{10}$/;
-
-  mobile.style.backgroundColor = pattern.test(mobile.value)
-    ? "lightgreen"
-    : "pink";
-}
+// Validate on submit
+submitBtn.addEventListener("click", () => {
+  validate(nameInput, namePattern);
+  validate(emailInput, emailPattern);
+  validate(mobileInput, mobilePattern);
+});
